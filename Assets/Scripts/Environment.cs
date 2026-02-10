@@ -20,12 +20,7 @@ public class Environment : MonoBehaviour
     private float xRorationObstacleRed = 73;
 
 
-    private void Start()
-    {
-        Create();
-    }
-
-    private void Create()
+    public void Create()
     {
         Instantiate(Ground, new Vector3(xPositionAll, yPositionGroiund, zPositionGroiund), Quaternion.Euler(0, 0, 0));
         Instantiate(ObstacleBlue, new Vector3(xPositionAll, yPositionObstacleBlue, zPositionObstacleBlue), Quaternion.Euler(xRotationObstacleBlue, 0, 0));
