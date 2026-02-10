@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] Cube Cube;
+    [SerializeField] private Cube Cube;
     
     private float _rainHeight = 50f;
 
     private void Start()
     {
-        CreatePoint();
+        CreateRain();
     }
 
-    private void CreatePoint()
+    private void CreateRain()
     {
-        GameObject point = new("PointRain");
-        point.transform.position = new Vector3(0, _rainHeight, 0);
+         Instantiate(Cube, new Vector3(0, _rainHeight, 0 ), Quaternion.Euler(0, 0, 0));
+        
     }
-
 }
 
 
