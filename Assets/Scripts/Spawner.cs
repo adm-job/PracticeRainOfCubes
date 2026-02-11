@@ -1,12 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Cube Cube;
     [SerializeField] private Environment Environment;
+
+    private float minValue = 0;
+    private float maxValue = 100;
 
     private float _rainHeight = 50f;
 
@@ -27,14 +28,22 @@ public class Spawner : MonoBehaviour
             Debug.Log("Прошло 1 секунда");
             CreateRain();
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
     private void CreateRain()
     {
-        Instantiate(Cube, new Vector3(25, _rainHeight, 25), Quaternion.Euler(0, 0, 0));
+        float x = NewRandom();
+        float z = NewRandom();
 
+        Instantiate(Cube, new Vector3(x, _rainHeight, z), Quaternion.Euler(0, 0, 0));
+
+    }
+
+    private float NewRandom()
+    {
+        return Random.Range(minValue, maxValue);
     }
 }
 
