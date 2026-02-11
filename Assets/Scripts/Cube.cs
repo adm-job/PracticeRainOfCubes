@@ -14,5 +14,10 @@ public class Cube : MonoBehaviour
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
     }
+
+    private void Update()
+    {
+        
+    }
 }
 
