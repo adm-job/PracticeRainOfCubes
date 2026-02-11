@@ -10,19 +10,23 @@ public class Spawner : MonoBehaviour
 
     private float _rainHeight = 50f;
 
-    private void Start()
+    private void Awake()
     {
         Environment.Create();
+    }
+
+    public void PlayRain()
+    {
         StartCoroutine(EverySecond());
     }
 
-    IEnumerator EverySecond()
+    private IEnumerator EverySecond()
     {
         while (true)
         {
             Debug.Log("Прошло 1 секунда");
             CreateRain();
-            
+
             yield return new WaitForSeconds(1f);
         }
     }

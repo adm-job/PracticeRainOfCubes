@@ -5,7 +5,11 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
     [SerializeField] Spawner spawner;
+
+    private void Start()
+    {
+    spawner.PlayRain();
+    }
+
     
-
-
 }
