@@ -11,13 +11,13 @@ public class Environment : MonoBehaviour
 
     private float xPositionAll = 50;
     private float yPositionGroiund = 0;
-    private float yPositionObstacleBlue = 9;
-    private float yPositionObstacleRed = 27;
     private float zPositionGroiund = 50;
+    private float yPositionObstacleBlue = 9;
     private float zPositionObstacleBlue = 21;
-    private float zPositionObstacleRed = 15;
     private float xRotationObstacleBlue = 55;
-    private float xRorationObstacleRed = 73;
+    private float yPositionObstacleRed = 27;
+    private float zPositionObstacleRed = 6;
+    private float xRorationObstacleRed = 37;
 
 
     public void Create()

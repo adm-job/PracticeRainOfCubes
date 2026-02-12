@@ -25,7 +25,6 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Прошло 1 секунда");
             CreateRain();
 
             yield return new WaitForSeconds(0.01f);
