@@ -7,7 +7,7 @@ public class SpawnerPool : MonoBehaviour
 {
     [SerializeField] private GameObject _prefab;
     [SerializeField] private GameObject _startPoint;
-    [SerializeField] private float _repeateRate = 1f;
+    [SerializeField] private float _repeatRate = 1f;
     [SerializeField] private int _poolCapacity = 100;
     [SerializeField] private int _poolMaxSize = 100;
 
@@ -34,7 +34,7 @@ public class SpawnerPool : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(GetCube), 0.0f, _repeateRate);
+        InvokeRepeating(nameof(GetCube), 0.0f, _repeatRate);
     }
 
     private void GetCube()
@@ -44,8 +44,18 @@ public class SpawnerPool : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Colision");
-        _pool.Release(other.gameObject);
+        Debug.Log("Triger");
+        Debug.Log(gameObject.activeInHierarchy);
+
+        _pool.Release(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collision");
+        Debug.Log(gameObject.activeInHierarchy);
+
+        _pool.Release(gameObject);
     }
 }
 
