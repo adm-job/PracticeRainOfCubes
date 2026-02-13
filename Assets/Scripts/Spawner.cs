@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     public void PlayRain()
     {
-        StartCoroutine(EverySecond());
+        //StartCoroutine(EverySecond());
     }
 
     private IEnumerator EverySecond()
