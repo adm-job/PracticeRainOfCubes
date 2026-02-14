@@ -12,6 +12,17 @@ public class SpawnerPool : MonoBehaviour
     [SerializeField] private int _poolMaxSize = 100;
 
     private ObjectPool<GameObject> _pool;
+    private Cube Cube;
+
+    private void OnEnable()
+    {
+        Cube.Collising += ReleaseCube;
+    }
+
+    private void OnDisable()
+    {
+        Cube.Collising -= ReleaseCube;
+    }
 
     private void Awake()
     {
@@ -34,27 +45,32 @@ public class SpawnerPool : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(GetCube), 0.0f, _repeatRate);
+        InvokeRepeating(nameof(GetObject), 0.0f, _repeatRate);
     }
 
-    private void GetCube()
+    private void GetObject()
     {
         _pool.Get();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Triger");
-        Debug.Log(gameObject.activeInHierarchy);
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Debug.Log("Triger");
+    //    Debug.Log(gameObject.activeInHierarchy);
 
-        _pool.Release(gameObject);
-    }
+    //    _pool.Release(gameObject);
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision");
         Debug.Log(gameObject.activeInHierarchy);
 
+        _pool.Release(gameObject);
+    }
+
+    private void ReleaseCube(GameObject gameObject)
+    {
         _pool.Release(gameObject);
     }
 }
