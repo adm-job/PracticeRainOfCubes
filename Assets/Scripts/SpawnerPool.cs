@@ -12,16 +12,16 @@ public class SpawnerPool : MonoBehaviour
     [SerializeField] private int _poolMaxSize = 100;
 
     private ObjectPool<GameObject> _pool;
-    private Cube Cube;
+    private Cube _cube;
 
     private void OnEnable()
     {
-        Cube.Collising += ReleaseCube;
+        _cube.Collising += ReleaseCube;
     }
 
     private void OnDisable()
     {
-        Cube.Collising -= ReleaseCube;
+        _cube.Collising -= ReleaseCube;
     }
 
     private void Awake()

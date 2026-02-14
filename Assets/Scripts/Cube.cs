@@ -18,7 +18,10 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Collising?.Invoke(gameObject);
+        if (collision.gameObject.TryGetComponent(out Cube cube))
+        {
+            Collising?.Invoke(gameObject);
+        }
     }
 }
 
