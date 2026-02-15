@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class Cube : MonoBehaviour
 {
-    //public event Action<GameObject> Collising;
+    public event Action<GameObject> Collising;
 
     public MeshRenderer Renderer { get; private set; }
     public Rigidbody Rigidbody { get; private set; }
@@ -16,12 +16,13 @@ public class Cube : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.TryGetComponent(out Cube cube))
-    //    {
-    //        Collising?.Invoke(this);
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Cube cube))
+        {
+            Collising?.Invoke(collision.gameObject);
+        }
+        Debug.Log("Коллизия");
+    }
 }
 

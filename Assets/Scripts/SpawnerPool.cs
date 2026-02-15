@@ -13,17 +13,17 @@ public class SpawnerPool : MonoBehaviour
     [SerializeField] private Environment _environment;
 
     private ObjectPool<GameObject> _pool;
-    //private Cube _cube;
+    private Cube _cube;
 
-    //private void OnEnable()
-    //{
-    //    _cube.Collising += ReleaseCube;
-    //}
+    private void OnEnable()
+    {
+        _cube.Collising += ReleaseCube;
+    }
 
-    //private void OnDisable()
-    //{
-    //    _cube.Collising -= ReleaseCube;
-    //}
+    private void OnDisable()
+    {
+        _cube.Collising -= ReleaseCube;
+    }
 
     private void Awake()
     {
@@ -71,9 +71,9 @@ public class SpawnerPool : MonoBehaviour
 
     }
 
-    //private void ReleaseCube(GameObject gameObject)
-    //{
-    //    _pool.Release(gameObject);
-    //}
+    private void ReleaseCube(GameObject obj)
+    {
+        _pool.Release(obj);
+    }
 }
 
