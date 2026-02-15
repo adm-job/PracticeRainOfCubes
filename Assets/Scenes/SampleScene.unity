@@ -273,7 +273,6 @@ GameObject:
   m_Component:
   - component: {fileID: 914252693}
   - component: {fileID: 914252692}
-  - component: {fileID: 914252694}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -293,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60cb96a8d5ee1148ae8aab62ecd5b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
+  _spawnerPool: {fileID: 2124108942}
 --- !u!4 &914252693
 Transform:
   m_ObjectHideFlags: 0
@@ -309,24 +308,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &914252694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914252691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b994dc6863ebbd40921040de2eead80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 1478084648494352437, guid: 9ed325fe6cc37a44a8290d11937e78c5, type: 3}
-  _startPoint: {fileID: 1045012913}
-  _repeatRate: 1
-  _poolCapacity: 10
-  _poolMaxSize: 10
-  _environment: {fileID: 856549245}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +478,9 @@ MonoBehaviour:
   _prefab: {fileID: 1478084648494352437, guid: 9ed325fe6cc37a44a8290d11937e78c5, type: 3}
   _startPoint: {fileID: 1045012913}
   _repeatRate: 1
-  _poolCapacity: 100
-  _poolMaxSize: 100
-  _environment: {fileID: 0}
+  _poolCapacity: 10
+  _poolMaxSize: 10
+  _environment: {fileID: 856549245}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
