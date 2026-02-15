@@ -64,12 +64,12 @@ public class SpawnerPool : MonoBehaviour
     //    _pool.Release(gameObject);
     //}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Коллизия");
-        _pool.Release(gameObject);
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("Коллизия");
+    //    _pool.Release(gameObject);
 
-    }
+    //}
 
     private void ReleaseCube(GameObject obj)
     {
