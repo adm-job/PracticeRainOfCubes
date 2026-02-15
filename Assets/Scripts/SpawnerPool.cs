@@ -10,6 +10,7 @@ public class SpawnerPool : MonoBehaviour
     [SerializeField] private float _repeatRate = 1f;
     [SerializeField] private int _poolCapacity = 100;
     [SerializeField] private int _poolMaxSize = 100;
+    [SerializeField] private Environment _environment;
 
     private ObjectPool<GameObject> _pool;
     //private Cube _cube;
@@ -26,6 +27,8 @@ public class SpawnerPool : MonoBehaviour
 
     private void Awake()
     {
+        _environment.Create();
+
         _pool = new ObjectPool<GameObject>(
         createFunc: () => Instantiate(_prefab),
         actionOnGet: (obj) => ActionOnGet(obj),
@@ -63,6 +66,10 @@ public class SpawnerPool : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        foreach (var item in collision)
+        {
+            Debug.Log(item);
+        }
         if (collision.gameObject.TryGetComponent(out Cube cube))
         {
             _pool.Release(gameObject);

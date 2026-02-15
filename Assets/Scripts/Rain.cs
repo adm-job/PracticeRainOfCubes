@@ -6,10 +6,10 @@ public class Rain : MonoBehaviour
 {
     [SerializeField] Spawner spawner;
 
-    private void Start()
-    {
-    spawner.PlayRain();
-    }
+    //private void Start()
+    //{
+    //spawner.PlayRain();
+    //}
 
     
 }
