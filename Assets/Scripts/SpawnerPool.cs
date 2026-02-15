@@ -66,6 +66,7 @@ public class SpawnerPool : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Коллизия");
         _pool.Release(gameObject);
 
     }
