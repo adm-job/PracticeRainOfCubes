@@ -66,15 +66,7 @@ public class SpawnerPool : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (var item in collision)
-        {
-            Debug.Log(item);
-        }
-        if (collision.gameObject.TryGetComponent(out Cube cube))
-        {
-            _pool.Release(gameObject);
-
-        }
+        _pool.Release(gameObject);
 
     }
 

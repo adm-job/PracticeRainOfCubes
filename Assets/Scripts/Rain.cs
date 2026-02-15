@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
-    [SerializeField] Spawner spawner;
+    [SerializeField] SpawnerPool _spawnerPool;
 
-    //private void Start()
-    //{
-    //spawner.PlayRain();
-    //}
-
-    
 }
