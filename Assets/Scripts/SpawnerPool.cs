@@ -5,14 +5,14 @@ using UnityEngine.Pool;
 
 public class SpawnerPool : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
+    [SerializeField] private Cube _prefab;
     [SerializeField] private GameObject _startPoint;
     [SerializeField] private float _repeatRate = 1f;
     [SerializeField] private int _poolCapacity = 100;
     [SerializeField] private int _poolMaxSize = 100;
     [SerializeField] private Environment _environment;
 
-    private ObjectPool<GameObject> _pool;
+    private ObjectPool<Cube> _pool;
     private Cube _cube;
 
     private void OnEnable()
@@ -29,21 +29,22 @@ public class SpawnerPool : MonoBehaviour
     {
         _environment.Create();
 
-        _pool = new ObjectPool<GameObject>(
+        _pool = new ObjectPool< Cube>(
         createFunc: () => Instantiate(_prefab),
-        actionOnGet: (obj) => ActionOnGet(obj),
-        actionOnRelease: (obj) => obj.SetActive(false),
-        actionOnDestroy: (obj) => Destroy(obj),
+        actionOnGet: (cube) => ActionOnGet(cube),
+        actionOnRelease: (cube) => cube.Deactivation(),
+        actionOnDestroy: (cube) => Destroy(cube),
         collectionCheck: true,
         defaultCapacity: _poolCapacity,
         maxSize: _poolMaxSize);
     }
 
-    private void ActionOnGet(GameObject obj)
+    private void ActionOnGet(Cube cube)
     {
-        obj.transform.position = _startPoint.transform.position;
-        obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        obj.SetActive(true);
+        cube.transform.position = _startPoint.transform.position;
+        cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        cube.Activation();
+        cube.Collising += ReleaseCube;
     }
 
     private void Start()
@@ -71,9 +72,10 @@ public class SpawnerPool : MonoBehaviour
 
     //}
 
-    private void ReleaseCube(GameObject obj)
+    private void ReleaseCube(Cube cube)
     {
-        _pool.Release(obj);
+        cube.Collising -= ReleaseCube;
+        _pool.Release(cube);
     }
 }
 
