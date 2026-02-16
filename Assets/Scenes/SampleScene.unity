@@ -475,9 +475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b994dc6863ebbd40921040de2eead80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 1478084648494352437, guid: 9ed325fe6cc37a44a8290d11937e78c5, type: 3}
+  _prefab: {fileID: 709867923048177866, guid: 9ed325fe6cc37a44a8290d11937e78c5, type: 3}
   _startPoint: {fileID: 1045012913}
-  _repeatRate: 1
+  _repeatRate: 0.09
   _poolCapacity: 10
   _poolMaxSize: 10
   _environment: {fileID: 856549245}
