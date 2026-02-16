@@ -5,14 +5,13 @@ using UnityEngine.Pool;
 public class SpawnerPool : MonoBehaviour
 {
     [SerializeField] private Cube _prefab;
-    [SerializeField] private GameObject _startPoint;
     [SerializeField] private float _repeatRate = 1f;
     [SerializeField] private int _poolCapacity = 100;
     [SerializeField] private int _poolMaxSize = 100;
 
-    //private float _minXZ = 1f;
-    //private float _maxXZ = 99f;
-    //private Random _random ;
+    private float _minXZ = 1f;
+    private float _maxXZ = 99f;
+    private float _positionY = 50f;
 
     private ObjectPool<Cube> _pool;
 
@@ -30,8 +29,7 @@ public class SpawnerPool : MonoBehaviour
 
     private void ActionOnGet(Cube cube)
     {
-        
-        cube.transform.position = _startPoint.transform.position;
+        cube.transform.position = new Vector3(Random.Range(_minXZ, _maxXZ), _positionY, Random.Range(_minXZ, _maxXZ));
         cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
         cube.Activation();
         cube.Collising += ReleaseCube;
