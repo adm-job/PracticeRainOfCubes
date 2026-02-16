@@ -8,7 +8,7 @@ public class CreateEnvironment : MonoBehaviour
     [SerializeField] private Platform Ground;    
     [SerializeField] private Platform ObstacleBlue;    
     [SerializeField] private Platform ObstacleRed;
-    [SerializeField] private Platform _camera;
+    [SerializeField] private Camera _camera;
 
     private float xPositionAll = 50;
     private float yPositionGround = 0;
