@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class Environment : MonoBehaviour
+public class CreateEnvironment : MonoBehaviour
 {
     [SerializeField] private GameObject Ground;    
     [SerializeField] private GameObject ObstacleBlue;    

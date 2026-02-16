@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.tvOS;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MeshRenderer))]
@@ -35,7 +36,7 @@ public class Cube : MonoBehaviour
         }
 
         isCollision = true;
-        
+
         Renderer.material.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
 
         StartCoroutine(EverySecond());

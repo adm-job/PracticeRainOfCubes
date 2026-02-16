@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.tvOS;
 
 public class SpawnerPool : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class SpawnerPool : MonoBehaviour
         cube.transform.position = new Vector3(Random.Range(_minXZ, _maxXZ), _positionY, Random.Range(_minXZ, _maxXZ));
         cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
         cube.Activation();
+        
         cube.Collising += ReleaseCube;
     }
 
