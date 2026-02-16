@@ -33,7 +33,6 @@ public class Cube : MonoBehaviour
         }
         
         Collising?.Invoke(this);
-        Debug.Log("Коллизия");
     }
 }
 
