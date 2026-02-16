@@ -8,6 +8,9 @@ using UnityEngine.tvOS;
 public class Cube : MonoBehaviour
 {
     private bool isCollision = false;
+    private float _sleepTime = 5f;
+    private ColorChanger _color;
+
     public event Action<Cube> Collising;
 
     public MeshRenderer Renderer { get; private set; }
@@ -30,28 +33,32 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Cube>() || isCollision)
+        if (isCollision)
+        {
+            return;
+        }
+
+        if (collision.gameObject.GetComponent<Platform>() != true)
         {
             return;
         }
 
         isCollision = true;
 
-        Renderer.material.color = UnityEngine.Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        Renderer.material.color = _color.GenerateNewColor();
 
-        StartCoroutine(EverySecond());
+        StartCoroutine(StartingTimer());
     }
 
-    private IEnumerator EverySecond()
+    private IEnumerator StartingTimer()
     {
-        yield return new WaitForSeconds(5f);
-        
-        Renderer.material.color = Color.white;
+        yield return new WaitForSeconds(_sleepTime);
+
+        Renderer.material.color = _color.ReturnStandartColor();
 
         isCollision = false;
-        
+
         Collising?.Invoke(this);
     }
-
 }
 

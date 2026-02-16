@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rain : MonoBehaviour
 {
-    [SerializeField] SpawnerPool _spawnerPool;
+    [SerializeField] private SpawnerPool _spawnerPool;
     [SerializeField] private CreateEnvironment _environment;
 
 
