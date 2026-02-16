@@ -27,6 +27,11 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.GetComponent<Cube>())
+        {
+            return;
+        }
+        
         Collising?.Invoke(this);
         Debug.Log("Коллизия");
     }
