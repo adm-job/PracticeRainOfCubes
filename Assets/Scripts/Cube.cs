@@ -30,11 +30,11 @@ public class Cube : MonoBehaviour
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
+        _color = GetComponent<ColorChanger>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        _color = GetComponent<ColorChanger>();
         
         if (isCollision)
         {
