@@ -5,6 +5,7 @@ using UnityEngine.tvOS;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(ColorChanger))]
 public class Cube : MonoBehaviour
 {
     private bool isCollision = false;
@@ -33,6 +34,8 @@ public class Cube : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        _color = GetComponent<ColorChanger>();
+        
         if (isCollision)
         {
             return;
@@ -47,6 +50,7 @@ public class Cube : MonoBehaviour
 
         Renderer.material.color = _color.GenerateNewColor();
 
+        Debug.Log("this");
         StartCoroutine(StartingTimer());
     }
 
@@ -54,7 +58,7 @@ public class Cube : MonoBehaviour
     {
         yield return new WaitForSeconds(_sleepTime);
 
-        Renderer.material.color = _color.ReturnStandartColor();
+        Renderer.material.color = _color.ReturnStandardColor();
 
         isCollision = false;
 

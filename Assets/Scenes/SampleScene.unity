@@ -337,9 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010258dda948ae142b49097ea3ecf425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ground: {fileID: 6353298343978086039, guid: 031533e5603701e47b10934d14029553, type: 3}
-  ObstacleBlue: {fileID: 8792750360788771539, guid: 1da5ebf6edeefee468b6faefb5185401, type: 3}
-  ObstacleRed: {fileID: 2249115186438534666, guid: 9844ddf840c49b947a664067f5880375, type: 3}
+  Ground: {fileID: -8608025919556914201, guid: 031533e5603701e47b10934d14029553, type: 3}
+  ObstacleBlue: {fileID: 6702931031907634649, guid: 1da5ebf6edeefee468b6faefb5185401, type: 3}
+  ObstacleRed: {fileID: 5170044085531605489, guid: 9844ddf840c49b947a664067f5880375, type: 3}
   _camera: {fileID: 28119020}
 --- !u!4 &1621719156
 Transform:
