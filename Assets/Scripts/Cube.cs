@@ -8,29 +8,31 @@ using UnityEngine.tvOS;
 [RequireComponent(typeof(ColorChanger))]
 public class Cube : MonoBehaviour
 {
+    public event Action<Cube> Collising;
+    
     private bool isCollision = false;
     private float _sleepTime = 5f;
     private ColorChanger _color;
 
-    public event Action<Cube> Collising;
-
     public MeshRenderer Renderer { get; private set; }
-    public Rigidbody Rigidbody { get; private set; }
 
-    public void Activation()
-    {
-        gameObject.SetActive(true);
-    }
-    public void Deactivation()
-    {
-        gameObject.SetActive(false);
-    }
+    public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
         _color = GetComponent<ColorChanger>();
+    }
+
+    public void Activation()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivation()
+    {
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -50,11 +52,11 @@ public class Cube : MonoBehaviour
 
         Renderer.material.color = _color.GenerateNewColor();
 
-        Debug.Log("this");
-        StartCoroutine(StartingTimer());
+        StartCoroutine(DeceptionDelay());
+
     }
 
-    private IEnumerator StartingTimer()
+    private IEnumerator DeceptionDelay()
     {
         yield return new WaitForSeconds(_sleepTime);
 

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.tvOS;
 
-public class SpawnerPool : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     [SerializeField] private Cube _prefab;
     [SerializeField] private float _repeatRate = 1f;
@@ -18,14 +18,16 @@ public class SpawnerPool : MonoBehaviour
 
     private void Awake()
     {
-        _pool = new ObjectPool< Cube>(
-        createFunc: () => Instantiate(_prefab),
-        actionOnGet: (cube) => ActionOnGet(cube),
-        actionOnRelease: (cube) => cube.Deactivation(),
-        actionOnDestroy: (cube) => Destroy(cube),
-        collectionCheck: true,
-        defaultCapacity: _poolCapacity,
-        maxSize: _poolMaxSize);
+        _pool = new ObjectPool<Cube>
+            (
+            createFunc: () => Instantiate(_prefab),
+            actionOnGet: (cube) => ActionOnGet(cube),
+            actionOnRelease: (cube) => cube.Deactivation(),
+            actionOnDestroy: (cube) => Destroy(cube),
+            collectionCheck: true,
+            defaultCapacity: _poolCapacity,
+            maxSize: _poolMaxSize
+            );
     }
 
     private void ActionOnGet(Cube cube)
@@ -33,7 +35,7 @@ public class SpawnerPool : MonoBehaviour
         cube.transform.position = new Vector3(Random.Range(_minXZ, _maxXZ), _positionY, Random.Range(_minXZ, _maxXZ));
         cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
         cube.Activation();
-        
+
         cube.Collising += ReleaseCube;
     }
 
