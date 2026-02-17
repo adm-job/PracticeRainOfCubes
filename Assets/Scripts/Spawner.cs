@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -41,8 +40,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating(nameof(GetObject), 0.0f, _repeatRate);
-        StartCoroutine(StartCreation());
+        InvokeRepeating(nameof(GetObject), 0.0f, _repeatRate);
     }
 
     private void GetObject()
@@ -55,17 +53,5 @@ public class Spawner : MonoBehaviour
         cube.Collising -= ReleaseCube;
         _pool.Release(cube);
     }
-
-
-    private IEnumerator StartCreation()
-    {
-        while (true)
-        {
-            GetObject();
-
-            yield return new WaitForSeconds(_repeatRate);
-        }
-    }
 }
-
 
