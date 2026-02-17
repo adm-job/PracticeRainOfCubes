@@ -43,7 +43,7 @@ public class Cube : MonoBehaviour
             return;
         }
 
-        if (collision.gameObject.GetComponent<Platform>() == null)
+        if (collision.gameObject.TryGetComponent<Platform>(out _))
         {
             return;
         }
