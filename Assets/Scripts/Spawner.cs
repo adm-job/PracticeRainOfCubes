@@ -21,8 +21,8 @@ public class Spawner : MonoBehaviour
             (
             createFunc: () => Instantiate(_prefab),
             actionOnGet: (cube) => GetOnAction(cube),
-            actionOnRelease: (cube) => cube.Deactivation(),
-            actionOnDestroy: (cube) => Destroy(cube),
+            actionOnRelease: (cube) => cube.Deactivate(),
+            actionOnDestroy: (cube) => Destroy(cube.gameObject),
             collectionCheck: true,
             defaultCapacity: _poolCapacity,
             maxSize: _poolMaxSize
@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
     private void GetOnAction(Cube cube)
     {
         cube.transform.position = new Vector3(Random.Range(_minXZ, _maxXZ), _positionY, Random.Range(_minXZ, _maxXZ));
-        cube.Activation();
+        cube.Activate();
 
         cube.Collising += ReleaseCube;
     }

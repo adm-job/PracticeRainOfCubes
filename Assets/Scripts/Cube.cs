@@ -22,12 +22,12 @@ public class Cube : MonoBehaviour
         _color = GetComponent<CreatingColor>();
     }
 
-    public void Activation()
+    public void Activate()
     {
         gameObject.SetActive(true);
     }
 
-    public void Deactivation()
+    public void Deactivate()
     {
         gameObject.SetActive(false);
     }
