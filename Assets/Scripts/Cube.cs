@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.tvOS;
 
 [RequireComponent(typeof(Rigidbody),typeof(MeshRenderer), typeof(ColorChanger))]
 public class Cube : MonoBehaviour
