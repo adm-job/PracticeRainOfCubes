@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody),typeof(MeshRenderer), typeof(ColorChanger))]
+[RequireComponent(typeof(Rigidbody),typeof(MeshRenderer), typeof(CreatingColor))]
 public class Cube : MonoBehaviour
 {
     public event Action<Cube> Collising;
     
     private bool isCollision = false;
     private float _sleepTime = 5f;
-    private ColorChanger _color;
+    private CreatingColor _color;
 
     public MeshRenderer Renderer { get; private set; }
 
@@ -19,7 +19,7 @@ public class Cube : MonoBehaviour
     {
         Renderer = GetComponent<MeshRenderer>();
         Rigidbody = GetComponent<Rigidbody>();
-        _color = GetComponent<ColorChanger>();
+        _color = GetComponent<CreatingColor>();
     }
 
     public void Activation()

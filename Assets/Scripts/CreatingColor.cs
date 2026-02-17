@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class ColorChanger : MonoBehaviour
+public class CreatingColo
+    \r : MonoBehaviour
 {
     public Color GenerateNewColor()
     {
