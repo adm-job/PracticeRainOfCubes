@@ -3,9 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.tvOS;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(ColorChanger))]
+[RequireComponent(typeof(Rigidbody),typeof(MeshRenderer), typeof(ColorChanger))]
 public class Cube : MonoBehaviour
 {
     public event Action<Cube> Collising;

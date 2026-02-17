@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         _pool = new ObjectPool<Cube>
             (
             createFunc: () => Instantiate(_prefab),
-            actionOnGet: (cube) => ActionOnGet(cube),
+            actionOnGet: (cube) => GetOnAction(cube),
             actionOnRelease: (cube) => cube.Deactivation(),
             actionOnDestroy: (cube) => Destroy(cube),
             collectionCheck: true,
@@ -30,10 +30,9 @@ public class Spawner : MonoBehaviour
             );
     }
 
-    private void ActionOnGet(Cube cube)
+    private void GetOnAction(Cube cube)
     {
         cube.transform.position = new Vector3(Random.Range(_minXZ, _maxXZ), _positionY, Random.Range(_minXZ, _maxXZ));
-        cube.GetComponent<Rigidbody>().velocity = Vector3.zero;
         cube.Activation();
 
         cube.Collising += ReleaseCube;
